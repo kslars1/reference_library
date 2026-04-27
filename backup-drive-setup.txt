@@ -1,0 +1,93 @@
+Setting Up a Backup Drive on Linux
+Overview
+This guide explains how to prepare an external SSD/HDD for backups on Linux and how to automate backups using a simple script and cron.
+
+1. Prepare the Backup Drive
+A. Identify the drive
+Use lsblk to list all storage devices:
+
+Code
+lsblk
+Find the device name for the SSD (e.g., /dev/sdb).
+
+B. Wipe existing partitions
+Use GNOME Disks or run:
+
+Code
+sudo wipefs -a /dev/sdX
+Replace sdX with the correct device (e.g., sdb).
+
+C. Create a new partition table
+Using CLI:
+
+Code
+sudo parted /dev/sdX --script mklabel gpt
+D. Create a new ext4 partition
+Code
+sudo parted -a opt /dev/sdX --script mkpart primary ext4 0% 100%
+Format it:
+
+Code
+sudo mkfs.ext4 /dev/sdX1
+E. Mount the drive
+After reconnecting, it will auto‑mount under:
+
+Code
+/media/<username>/<label>
+Rename the drive label if desired:
+
+Code
+sudo e2label /dev/sdX1 backup120
+2. Create a Backup Script
+Create the script:
+
+Code
+nano ~/backup_repos.sh
+Add:
+
+bash
+#!/bin/bash
+
+SOURCE="$HOME/Repositories/"
+DEST="/media/nosralsk/backup120/Repositories/"
+
+rsync -avh --delete "$SOURCE" "$DEST"
+Make it executable:
+
+Code
+chmod +x ~/backup_repos.sh
+3. Test the Script
+Run manually:
+
+Code
+~/backup_repos.sh
+Confirm files appear on the backup drive.
+
+4. Automate Backups with Cron
+Open crontab:
+
+Code
+crontab -e
+Add a schedule. Example: run daily at 2 AM:
+
+Code
+0 2 * * * /home/nosralsk/backup_repos.sh
+Other examples:
+
+Every hour
+0 * * * * /home/nosralsk/backup_repos.sh
+
+Every 6 hours
+0 */6 * * * /home/nosralsk/backup_repos.sh
+
+Every Sunday at midnight
+0 0 * * SUN /home/nosralsk/backup_repos.sh
+
+5. Optional Enhancements
+Auto‑mount the drive at boot using /etc/fstab
+
+Add logging to track backup history
+
+Add notifications if the drive is missing
+
+Expand the script to back up additional directories
