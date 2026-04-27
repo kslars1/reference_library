@@ -1,0 +1,75 @@
+SSH Setup Checklist (Client → Server)
+
+On the client, check if you already have an SSH keypair.
+
+Linux/macOS:
+ls ~/.ssh
+
+Windows:
+dir C:\Users\<your-user>\.ssh
+
+If you see id_ed25519 and id_ed25519.pub, you already have a keypair.
+
+If not, generate one:
+ssh-keygen -t ed25519
+
+This creates:
+
+private key (stays on the client)
+
+public key (copied to the server)
+
+(Optional) Add a config block on the client.
+
+Edit:
+~/.ssh/config
+
+Add:
+Host myserver
+HostName <server-ip-or-hostname>
+User <username>
+IdentityFile ~/.ssh/id_ed25519
+
+This makes SSH commands shorter but does not affect authentication.
+
+Copy the client’s public key to the server.
+
+Preferred:
+ssh-copy-id myserver
+
+Manual:
+cat ~/.ssh/id_ed25519.pub | ssh myserver "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+
+This enables passwordless login.
+
+Test the connection.
+ssh myserver
+
+If the key matches, SSH skips the password. If not, it falls back to password.
+
+(Optional) Disable password login on the server.
+
+Edit:
+sudo nano /etc/ssh/sshd_config
+
+Set:
+PasswordAuthentication no
+
+Then:
+sudo systemctl restart ssh
+
+To remove key-based login and return to password login:
+
+On the server:
+nano ~/.ssh/authorized_keys
+
+Delete the line containing the client’s public key.
+
+SSH will immediately go back to password prompts.
+
+Mental model:
+
+Client holds the private key.
+Server holds the public key.
+If the server sees a matching key, it skips the password.
+If you don’t want that, remove the key from the server.

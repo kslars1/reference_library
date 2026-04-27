@@ -1,0 +1,128 @@
+shell
+The shell is the program that interprets your commands and runs them. It’s the interface between you and the operating system.
+
+terminal
+The terminal is the window where you type commands. It sends your input to the shell and displays the output.
+
+command
+A command is a program or instruction you type into the terminal. The shell reads it and executes it.
+
+sudo
+sudo temporarily gives your command administrator (root) privileges. It lets you perform system-level actions that a normal user cannot.
+
+root
+Root is the superuser account with full control over the system. It can read, write, or delete anything.
+
+nano
+Nano is a simple text editor that runs inside the terminal. It lets you create or edit files using keyboard shortcuts.
+
+vim
+Vim is a powerful, keyboard-driven text editor for advanced users. It has a steep learning curve but is extremely fast once mastered.
+
+ssh
+SSH is a secure way to connect to another computer over a network. It encrypts your session so you can safely run commands on a remote machine.
+
+scp
+scp securely copies files between computers over SSH. It works like cp but across machines.
+
+chmod
+chmod changes file permissions, controlling who can read, write, or execute a file. It uses numeric or symbolic modes to set access.
+
+chown
+chown changes the owner of a file or directory. It’s used when you need to give control of a file to a different user.
+
+ls
+ls lists the files and folders in a directory. It’s the basic way to see what’s inside a location.
+
+cd
+cd changes your current directory. It’s how you move around the filesystem.
+
+pwd
+pwd prints your current working directory. It tells you exactly where you are in the filesystem.
+
+cp
+cp copies files or directories. It leaves the original in place and creates a duplicate.
+
+mv
+mv moves or renames files or directories. It does not create a copy; it relocates or renames the original.
+
+rm
+rm removes (deletes) files or directories. It does not send them to a trash bin — deletion is permanent.
+
+mkdir
+mkdir creates a new directory. Use -p to create parent directories automatically.
+
+rmdir
+rmdir removes empty directories. It only works if the directory contains no files.
+
+apt
+apt is the package manager for Debian-based systems like Ubuntu. It installs, updates, and removes software from official repositories.
+
+systemctl
+systemctl manages system services and the systemd init system. It starts, stops, enables, or checks the status of background services.
+
+journalctl
+journalctl shows system logs collected by systemd. It’s useful for troubleshooting errors and service issues.
+
+ps
+ps shows running processes. It helps you see what programs are currently active.
+
+kill
+kill sends a signal to a process, usually to stop it. It’s used when a program freezes or misbehaves.
+
+top
+top shows real-time system resource usage, including CPU, memory, and running processes. It’s useful for diagnosing performance issues.
+
+htop
+htop is an improved, interactive version of top. It lets you scroll, sort, and kill processes more easily.
+
+df
+df shows disk usage for filesystems. It tells you how much space is used and available.
+
+du
+du shows disk usage for files and directories. It helps you find what’s taking up space.
+
+tar
+tar creates or extracts archive files. It’s commonly used for backups or packaging files together.
+
+grep
+grep searches for text patterns inside files or output. It’s one of the most powerful tools for finding information quickly.
+
+find
+find searches for files and directories based on name, size, type, or other attributes. It’s extremely flexible for locating things on the system.
+
+man
+man shows the manual page for a command. It explains what the command does and how to use it.
+
+env
+env shows environment variables for your session. These variables affect how programs run.
+
+export
+export sets environment variables for the current shell session. It makes variables available to child processes.
+
+alias
+alias creates shortcuts for commands. It lets you define custom command names for convenience.
+
+uname
+uname shows system information like kernel version and architecture. It’s useful for checking what OS and kernel you’re running.
+
+hostname
+hostname shows or sets the system’s network name. It identifies your machine on a network.
+
+ping
+ping tests network connectivity to another device. It shows whether a host is reachable and how long packets take to travel.
+
+curl
+curl transfers data from or to a server using URLs. It’s commonly used to download files or interact with APIs.
+
+wget
+wget downloads files from the web. It can resume downloads and work in the background.
+
+free
+free shows memory usage, including RAM and swap. It helps you understand how much memory your system is using.
+
+uptime
+uptime shows how long the system has been running and the load averages. It’s a quick snapshot of system activity.
+
+whoami
+whoami prints the current logged-in username. It’s useful when switching users or working in SSH sessions
