@@ -1,0 +1,6 @@
+try/catch
+
+converting strings to numbers with parse()
+
+getting user input
+
