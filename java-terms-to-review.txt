@@ -4,3 +4,5 @@ converting strings to numbers with parse()
 
 getting user input
 
+
+string formatting (printf / String f% etc...)
