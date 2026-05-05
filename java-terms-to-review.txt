@@ -4,5 +4,8 @@ converting strings to numbers with parse()
 
 getting user input
 
+the stack
+
+polymorphismm
 
 string formatting (printf / String f% etc...)
