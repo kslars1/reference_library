@@ -1,3 +1,5 @@
+JAVA:
+
 try/catch
 
 converting strings to numbers with parse()
@@ -11,3 +13,12 @@ polymorphismm
 abstract class
 
 string formatting (printf / String f% etc...)
+
+
+OTHER:
+
+JS javascript overview / practice projects from basic prompts / printing to collecting info, adding to, and looping through arrays
+
+PHP
+
+SQL
